@@ -1,0 +1,98 @@
+﻿.login-form {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin-left: 75px;
+    margin-right: -73px;
+    padding: 20px;
+}
+
+    .login-form h2 {
+        color: #333333;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .login-form .form-field {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .login-form label {
+        color: #333333;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .login-form input {
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .login-form button {
+        background-color: #0099cc;
+        border: none;
+        border-radius: 17px;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 18px;
+        padding: -11px -2px;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+        .login-form button:hover {
+            background-color: #0077cc;
+        }
+
+
+
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+    display: none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+    #message p {
+        padding: 2px 35px;
+        font-size: 15px;
+    }
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+    .valid:before {
+        position: relative;
+        left: -35px;
+        content: "✔";
+    }
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+    .invalid:before {
+        position: relative;
+        left: -35px;
+        content: "✖";
+    }
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: bold;
+}

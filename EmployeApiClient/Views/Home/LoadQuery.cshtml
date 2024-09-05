@@ -1,0 +1,505 @@
+﻿@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jQuerySelectors</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="~/mystaticfiles/jquerystyle.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $('input[type="radio"]').click(function () {
+                var inputValue = $(this).attr("class");
+                var targetBox = $("." + inputValue);
+                var radiovalue = $(this).attr("value");
+                $(".box").not(targetBox).hide();
+                $(targetBox).show();
+                attributeSelectors(radiovalue);
+                attributeMessage(radiovalue);
+                $(".Selecterdescription").text("");
+            });
+        });
+        function idselectors() {
+            var id = $("#valueofId").val();
+            $(".highlighted").removeClass("highlighted");
+            $("#" + id).addClass("highlighted");
+        }
+
+        function classSelector() {
+            var cls = $("#classvalue").val();
+            $(".highlighted").removeClass("highlighted");
+            $("." + cls).addClass("highlighted");
+        }
+        function ElementSelectors() {
+            var element = $("#Elementvalue").val();
+            $(".divs .highlighted").removeClass("highlighted");
+            $(".divs " + element).addClass("highlighted");
+        }
+        function attributeSelectors(radiovalue) {
+            $(".divs .highlighted").removeClass("highlighted");
+            $(".divs " + radiovalue).addClass("highlighted");
+        }
+
+        function displayMessage() {
+            var selectedOption = $("#valueofId").val();
+            var selectedOptionAttribute = $("#attributevalue").val();
+            var message = "";
+            switch (selectedOption) {
+                case "":
+                    message = "Please select a jQuery selector";
+                    break;
+                case "div1":
+                    message = "Select Elements with an id attribute value containing div1";
+                    break;
+                case "div2":
+                    message = "Select Elements with an id attribute value containing div2";
+                    break;
+                case "div3":
+                    message = "Select Elements with an id attribute value containing div3";
+                    break;
+                case "div4":
+                    message = "Select Elements with an id attribute value containing div4";
+                    break;
+                case "div5":
+                    message = "Select Elements with an id attribute value containing div5";
+                    break;
+                default:
+                    message = "";
+            }
+            $(".Selecterdescription").text(message);
+        }
+
+        function classMessage() {
+            var selectedOption = $("#classvalue").val();
+            var message = "";
+            switch (selectedOption) {
+                case "":
+                    message = "Please select a jQuery selector";
+                    break;
+                case "Class1":
+                    message = "Select Elements with a class attribute value of Class1";
+                    break;
+                case "Class2":
+                    message = "Select Elements with a class attribute value of Class2";
+                    break;
+                case "Class3":
+                    message = "Select Elements with a class attribute value of Class3";
+                    break;
+                default:
+                    message = "";
+            }
+            $(".Selecterdescription").text(message);
+
+        }
+
+        function elementMessage() {
+            var selectedOption = $("#Elementvalue").val();
+            var message = "";
+            switch (selectedOption) {
+                case "":
+                    message = "Please select a jQuery selector";
+                    break;
+                case "h1":
+                    message = "Selects All The elements type: h1";
+                    break;
+                case "p":
+                    message = "Selects All The elements type: p";
+                    break;
+                case "span":
+                    message = "Selects All The elements type: span";
+                    break;
+                case "h3":
+                    message = "Selects All The elements type: h3";
+                    break;
+                case "b":
+                    message = "Selects All The elements type: b";
+                    break;
+                case "li":
+                    message = "Selects All The elements type: li";
+                    break;
+                case "ul":
+                    message = "Selects All The elements type: ul";
+                    break;
+                default:
+                    message = "";
+            }
+            $(".Selecterdescription").text(message);
+        }
+
+        function attributeMessage(radiovalue) {
+            var message = "";
+            switch (radiovalue) {
+                case "":
+                    message = "Please select a jQuery selector";
+                    break;
+                case "[id]":
+                    message = "All elements with an id attribute.";
+                    break;
+                case "[id=my-Address]":
+                    message = "The element with an id attribute of 'my-Address'.";
+                    break;
+                case "p[id!=my-Address]":
+                    message = "All <p> elements without an id attribute value equal to (my - Address).Note: Also <p> elements with no id attribute at all.";
+                    break;
+                case "[id$=ess]":
+                    message = "All elements with an id attribute that ends with 'ess'.";
+                    break;
+                case "[id|=my]":
+                    message = "All elements with an id attribute value equal to (my) or starting with my followed by a hyphen (-)";
+                    break;
+                case "[id^=L]":
+                    message = "All elements with an id attribute that starts with 'L'.";
+                    break;
+                case "[title~=beautiful]":
+                    message = "All elements with a title attribute that contains the word 'beautiful'.";
+                    break;
+                case "[id*=s]":
+                    message = "All elements with an id attribute that contains the letter 's'.";
+                    break;
+                case "[id*=s]":
+                    message = "All elements with an id attribute containing the letter 's'.";
+                    break;
+                case "[lang='it']":
+                    message = "All elements with a lang attribute equal to 'it'.";
+                    break;
+                case "[title='Hello beautiful']":
+                    message = "All elements with a title attribute equal to 'Hello beautiful'.";
+                    break;
+                case 'label[for="name"]':
+                    message = "All <label> elements with a for attribute equal to 'name'.";
+                    break;
+                case 'input[type="text"]':
+                    message = "All <input> elements with a type attribute equal to 'text'.";
+                    break;
+                case 'input[type="email"]':
+                    message = "All <input> elements with a type attribute equal to 'email'.";
+                    break;
+                case 'input[type="password"]':
+                    message = "All <input> elements with a type attribute equal to 'password'.";
+                    break;
+                case 'input[type="radio"]':
+                    message = "All <input> elements with a type attribute equal to 'radio'.";
+                    break;
+                case 'input[type="checkbox"]':
+                    message = "All <input> elements with a type attribute equal to 'checkbox'.";
+                    break;
+                case 'select[multiple]':
+                    message = "All <select> elements with a multiple attribute.";
+                    break;
+                case 'option[value="Donald"]':
+                    message = "All <option> elements with a value attribute equal to 'Donald'.";
+                    break;
+                case 'option[value="Mickey"]':
+                    message = "All <option> elements with a value attribute equal to 'Mickey'.";
+                    break;
+                case 'option[value="Goofy"]':
+                    message = "All <option> elements with a value attribute equal to 'Goofy'.";
+                    break;
+                case 'input[type="file"]':
+                    message = "All <input> elements with a type attribute equal to 'file'.";
+                    break;
+                default:
+                    message = "";
+            }
+            $(".msg").text(message);
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="options" class="child">
+            <h2>JQuery Selectors</h2>
+            <label><input type="radio" name="colorRadio" class="idselector" value="idselector"><strong> Id </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="classselector" value="classselector"><strong> Class </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="ElementSelector" value="ElementSelector"><strong> Element </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value="[id*=s]"><strong> $("[id*=s]") </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value="[lang='it']"><strong> [lang="it"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value="[title='Hello beautiful']"><strong> [title="Hello beautiful"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value='label[for="name"]'><strong> label[for="name"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value='input[type="text"]'><strong> input[type="text"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value='input[type="email"]'><strong> input[type="email"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value='input[type="password"]'><strong> input[type="password"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value='input[type="radio"]'><strong> input[type="radio"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value='input[type="checkbox"]'><strong> input[type="checkbox"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value='select[multiple]'><strong> select[multiple] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value='option[value="Donald"]'><strong> option[value="Donald"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value='option[value="Mickey"]'><strong> option[value="Mickey"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value='option[value="Goofy"]'><strong> option[value="Goofy"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value='input[type="file"]'><strong> input[type="file"] </strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value="[id]"><strong>[id]</strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value="[id=my-Address]"><strong>[id=my-Address]</strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value="p[id!=my-Address]"><strong>p[id!=my-Address]</strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value="[id$=ess]"><strong>[id$=ess]</strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value="[id|=my]"><strong>[id|=my]</strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value="[id^=L]"><strong>[id^=L]</strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value="[title~=beautiful]"><strong>[title~=beautiful]</strong></label><br>
+            <label><input type="radio" name="colorRadio" class="AttributeSelector" value="[id*=s]"><strong>[id*=s]</strong></label><br>
+        </div>
+        <div id="actualform" class="child" style="position: relative;">
+            <div class="idselector box">
+                <div class="description">
+                    <span><strong>Selector :</strong> Id</span> <br>
+                    <span><strong>Syntax :</strong> $("#IDName")</span>
+                    <p>
+                        <strong>Description : </strong>$("#IDName") is a jQuery selector that selects the HTML element with
+                        an ID of "IDName".In jQuery, the $ function is a shorthand for the jQuery function, which is used to
+                        manipulate the DOM (Document Object Model). The $("#IDName") selector finds the HTML element with an
+                        ID of "IDName" and returns it as a jQuery object.
+                        <br>Enter the Id in the below text box that you wanted to select.
+                    </p>
+                </div>
+                <div class="input">
+                    <form class="fromcontrol">
+                        <div class="form-group">
+                            <label class="leftlable" for="valueofId">$("#</label>
+                            <select class="inputbox" name="attribute-names" id="valueofId" onchange="displayMessage()">
+                                <option value="">Select</option>
+                                <option value="div1">div1</option>
+                                <option value="div2">div2</option>
+                                <option value="div3">div3</option>
+                                <option value="div4">div4</option>
+                                <option value="div5">div5</option>
+                            </select>
+                            <label class="rightlabel">");</label>
+                        </div>
+                        <div>
+                            <input class="btnselect" type="button" value="Select" onclick="idselectors()">
+                        </div>
+                    </form>
+                    <div class="Selecterdescription"></div>
+                </div>
+                <div class="divs" style="display:block;">
+                    <div id="div1"><span>div1</span></div>
+                    <div id="div2"><span>div2</span></div>
+                    <div id="div3"><span>div3</span></div>
+                    <div id="div4"><span>div4</span></div>
+                    <div id="div5"><span>div5</span></div>
+                </div>
+            </div>
+            <div class="classselector box">
+                <div class="description">
+                    <span><strong>Selector :</strong> Class</span> <br>
+                    <span><strong>Syntax :</strong> $(".Class Name")</span>
+                    <p>
+                        <strong>Description : </strong>$(".ClassName") is a jQuery selector that selects the HTML element
+                        with an Class of "ClassName".In jQuery, the $ function is a shorthand for the jQuery function, which
+                        is used to manipulate the DOM (Document Object Model). The $(".ClassName") selector finds the HTML
+                        element with an class of "ClassName" and returns it as a jQuery object.
+                        <br>Enter the Class in the below text box that you wanted to select.
+                    </p>
+                </div>
+                <div class="input">
+                    <form class="fromcontrol">
+                        <div class="form-group">
+                            <label class="leftlable">$(".</label>
+                            <select class="inputbox" name="attribute-names" id="classvalue" onchange="classMessage()">
+                                <option value="">Select</option>
+                                <option value="Class1">Class1</option>
+                                <option value="Class2">Class2</option>
+                                <option value="Class3">Class3</option>
+                            </select>
+                            <label class="rightlabel">");</label>
+                        </div>
+                        <div>
+                            <input class="btnselect" type="button" value="Select" onclick="classSelector()">
+                        </div>
+                    </form>
+                    <div class="Selecterdescription"></div>
+                </div>
+
+                <div class="divs" style="display:block;">
+                    <div class="parent">
+                        <span><strong>Class1</strong></span>
+                        <div id="div1" class="Class1"><span>div1</span></div>
+                        <div id="div2" class="Class1"><span>div2</span></div>
+                        <div id="div3" class="Class1"><span>div3</span></div>
+
+                    </div>
+                    <div class="parent">
+                        <span><strong>Class2</strong></span>
+                        <div id="div1" class="Class2"><span>div1</span></div>
+                        <div id="div2" class="Class2"><span>div2</span></div>
+                        <div id="div3" class="Class2"><span>div3</span></div>
+
+                    </div>
+                    <div class="parent">
+                        <span><strong>Class3</strong></span>
+                        <div id="div1" class="Class3"><span>div1</span></div>
+                        <div id="div2" class="Class3"><span>div2</span></div>
+                        <div id="div3" class="Class3"><span>div3</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ElementSelector box">
+                <div class="description">
+                    <span><strong>Selector :</strong> Element</span><br>
+                    <span><strong>Syntax :</strong> $("ElementName")</span>
+                    <p>
+                        <strong>Description : </strong>$("ElementName") is a jQuery selector that selects the HTML element
+                        with an ElementName of "ElementName".In jQuery, the $ function is a shorthand for the jQuery
+                        function, which is used to manipulate the DOM (Document Object Model). The $("#ElementName")
+                        selector finds the HTML element with an ElementName of "ElementName" and returns it as a jQuery
+                        object.
+                    </p>
+                </div>
+                <div class="input">
+                    <form class="fromcontrol">
+                        <div class="form-group">
+                            <label class="leftlable">$("</label>
+                            <select class="inputbox" name="attribute-names" id="Elementvalue" onchange="elementMessage()">
+                                <option value="">Select</option>
+                                <option value="h1">h1</option>
+                                <option value="p">p</option>
+                                <option value="span">span</option>
+                                <option value="h3">h3</option>
+                                <option value="b">b</option>
+                                <option value="li">li</option>
+                                <option value="ul">ul</option>
+                            </select>
+                            <label class="rightlabel">");</label>
+                        </div>
+                        <div>
+                            <input class="btnselect" type="button" value="Select" onclick="ElementSelectors()">
+                        </div>
+                    </form>
+                    <div class="Selecterdescription"></div>
+
+                </div>
+
+                <div class="divs">
+                    <h1>&lt;h1&gt;Welcome to My Homepage&lt;/h1&gt;</h1>
+                    <div class="intro">
+                        <p>
+                            &lt;p&gt;My name is Donald&lt;/p&gt;<br>
+                            <span id="Lastname">&lt;span&gt;Duck&lt;/span&gt;</span>
+                        </p><br>
+                        <p id="my-Address">&lt;p&gt;I live in Duckburg&lt;/p&gt;</p><br>
+                        <p>&lt;p&gt;I have many friends:&lt;/p&gt;</p>
+                    </div>
+                    <ul id="Listfriends">
+                        <li>&lt;li&gt;Goofy&lt;/li&gt;</li>
+                        <li>&lt;li&gt;Mickey&lt;/li&gt;</li>
+                        <li>&lt;li&gt;Daisy&lt;/li&gt;</li>
+                        <li>&lt;li&gt;Pluto&lt;/li&gt;</li>
+                    </ul>
+                    <p>&lt;p&gt;I really like Daisy!!&lt;/p&gt;</p><br>
+                    <p lang="it" title="Hello beautiful">&lt;p&gt;Ciao bella&lt;/p&gt;</p>
+                    <h3> &lt;h3&gt;We are all animals!&lt;/h3&gt;</h3>
+                    <p>
+                        <b>
+                            &lt;p&gt;&lt;b&gt;My latest discoveries has led me to believe that we are all
+                            animals:&lt;/b&gt;&lt;/p&gt;
+                        </b>
+                    </p>
+                </div>
+            </div>
+            <div class="AttributeSelector box">
+                <div class="description">
+                    <span><strong>Selector :</strong> Attribute</span> <br>
+                    <span><strong>Syntax :</strong> $("AttributeName")</span>
+                    <p>
+                        <strong>Description : </strong>jQuery, an attribute selector is used to select elements based on
+                        their attribute values. The attribute selector allows you to target elements based on the value of
+                        an attribute, such as "class", "id", "name", "href", "src", etc.Example:"[id=my-Address]" is a
+                        code snippet used to identify a specific element on a webpage using a unique identifier called "my-Address".
+                    </p>
+                </div>
+                <div class="input">
+                    <div class="msg"></div>
+                </div>
+
+                <div class="divs">
+                    <h1>&lt;h1&gt;Welcome to My Homepage&lt;/h1&gt;</h1>
+                    <div class="intro">
+                        <p>
+                            &lt;p&gt;My name is Donald&lt;/p&gt;<br>
+                            <span id="Lastname">&lt;span&gt;Duck&lt;/span&gt;</span>
+                        </p><br>
+                        <p id="my-Address">&lt;p&gt;I live in Duckburg&lt;/p&gt;</p><br>
+                        <p>&lt;p&gt;I have many friends:&lt;/p&gt;</p>
+                    </div>
+                    <ul id="Listfriends">
+                        <li>&lt;li&gt;Goofy&lt;/li&gt;</li>
+                        <li>&lt;li&gt;Mickey&lt;/li&gt;</li>
+                        <li>&lt;li&gt;Daisy&lt;/li&gt;</li>
+                        <li>&lt;li&gt;Pluto&lt;/li&gt;</li>
+                    </ul>
+                    <p>&lt;p&gt;I really like Daisy!!&lt;/p&gt;</p>
+                    <p lang="it" title="Hello beautiful">&lt;p&gt;Ciao bella&lt;/p&gt;</p>
+                    <h3> &lt;h3&gt;We are all animals!&lt;/h3&gt;</h3>
+                    <p>
+                        <b>
+                            &lt;p&gt;&lt;b&gt;My latest discoveries has led me to believe that we are all
+                            animals:&lt;/b&gt;&lt;/p&gt;
+                        </b>
+                    </p>
+
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type of Animal</th>
+                        </tr>
+                        <tr>
+                            <td>Mickey</td>
+                            <td>Mouse</td>
+                        </tr>
+                        <tr>
+                            <td>Goofy</td>
+                            <td>Dog</td>
+                        </tr>
+                        <tr>
+                            <td>Daisy</td>
+                            <td>Duck</td>
+                        </tr>
+                        <tr>
+                            <td>Pluto</td>
+                            <td>Dog</td>
+                        </tr>
+                    </table>
+
+
+                    <form>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name"><br><br>
+
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email"><br><br>
+
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password"><br><br>
+
+                        <label>Gender:</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label><br><br>
+
+                        <label for="newscategories">News Categories:</label><br>
+                        <input type="checkbox" id="ducks" name="ducks" value="ducks">
+                        <label for="ducks">Ducks</label><br>
+                        <input type="checkbox" id="dogs" name="dogs" value="dogs">
+                        <label for="dogs">Dogs</label><br>
+                        <input type="checkbox" id="humans" name="humans" value="humans">
+                        <label for="humans">Humans</label><br><br>
+
+                        <label for="favourite">My Favourite:</label><br>
+                        <select id="favourite" name="favourite" multiple>
+                            <option value="Donald">Donald</option>
+                            <option value="Mickey">Mickey</option>
+                            <option value="Goofy">Goofy</option>
+                        </select><br><br>
+
+                        <label for="image">Upload image:</label>
+                        <input type="file" id="image" name="image"><br><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

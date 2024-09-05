@@ -1,0 +1,195 @@
+﻿
+.container {
+    width: 100%;
+    background: linear-gradient(rgb(220, 220, 236), rgb(45, 114, 141));
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.child {
+    width: 109%;
+    background: white;
+    color: black;
+    margin: 15px 0.5em;
+    padding: 13rem;
+    border-style: double;
+    border-width: thick;
+}
+
+.description, .input {
+    position: absolute;
+    bottom: 25.5rem;
+    left: 6px;
+    right: 16px;
+    border-style: inset;
+    border-width: 2px;
+    border-radius: 14px;
+    color: black;
+}
+.input {
+    bottom: 21.5rem;
+    right: 1rem;
+    height: 12%;
+    text-align: center;
+    display: flex;
+    top: 11rem;
+    align-items: center;
+    justify-content: center;
+}
+.divs {
+    color: black;
+    position: absolute;
+    bottom: 0.5rem;
+    right: 8px;
+    left:10px;
+    height: 19rem;
+    overflow: scroll;
+    border-style: inset;
+    border-width: 2px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+
+#options {
+    padding: 1rem;
+    width: 16.2rem;
+    border-radius: 14px;
+    box-shadow: 5px -5px 6px #424b42, -5px 5px 6px #ffffff;
+    grid-area: 1 / 1 / 2 / 2;
+    overflow: scroll;
+    margin-left: 28px;
+}
+
+
+.box {
+    color: #fff;
+    padding: 20px;
+    display: none;
+    margin-top: 20px;
+}
+
+
+
+#page {
+    display: block;
+    color: black;
+    background: gainsboro;
+    position: absolute;
+}
+
+.highlighted {
+    border-radius: 3px;
+    background: firebrick !important;
+    color: azure;
+    font-weight: bold;
+}
+
+
+
+
+#divs2 {
+    color: black;
+    border-radius: 6px;
+    background: gainsboro;
+    position: absolute;
+    bottom: 8rem;
+    right: 1rem;
+    padding-right: 28.6rem;
+}
+
+#divs3 {
+    color: black;
+    border-radius: 6px;
+    background: gainsboro;
+    position: absolute;
+    bottom: 5rem;
+    right: 1rem;
+    padding-right: 28.2rem;
+}
+
+#actualform {
+    width: 185%;
+    grid-area: 1 / 2 / 2 / 3;
+    border-radius: 10px;
+}
+
+span, p {
+    display: inline-block;
+    margin: 3px;
+}
+
+#div1, #div2, #div3, #div4, #div5 {
+    background-color: azure;
+    margin: 10px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: medium;
+}
+
+.parent {
+    margin: 10px;
+    border-radius: 4px;
+    background: gainsboro;
+    padding: 6px;
+    border: double;
+}
+
+#Listfriends {
+    background: border-box;
+}
+
+.fromcontrol {
+    position: relative;
+    right: 19rem;
+}
+
+.Selecterdescription {
+    height: 3.5rem;
+    width: 62rem;
+    display: inline-block;
+    border-radius: 18px;
+    border: outset;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftlable {
+    position: relative;
+    left: 14.7rem;
+    top: 6px;
+    top: 6px;
+    font-weight: bold;
+}
+
+.rightlabel {
+    position: relative;
+    left: 23.6rem;
+    top: 5px;
+    font-weight: bold;
+}
+
+.inputbox {
+    position: absolute;
+    left: 21.2rem;
+    height: 22px;
+    width: 144px;
+    top: 6px;
+    text-align: center;
+    border: outset;
+    border-radius: 13px;
+}
+
+.btnselect {
+    position: relative;
+    left: 18.2rem;
+    top: 12px;
+    background: lightgreen;
+    border-radius: 7px;
+    font-weight: bold;
+}
